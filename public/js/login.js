@@ -3,8 +3,8 @@
 
 getUser = async (e) => {
   e.preventDefault();
-  const username = document.querySelector("#username").value;
-  const password = document.querySelector("#password").value;
+  const username = document.querySelector("#loginUsername").value;
+  const password = document.querySelector("#loginPassword").value;
 
   const response = await fetch(`/api/users/login`,{
     method: "POST",
@@ -13,7 +13,7 @@ getUser = async (e) => {
   });
 
   if (response.ok) {
-    
+      document.location.replace("/clockIn");
   }
   else {
     window.alert("Incorrect username or password");

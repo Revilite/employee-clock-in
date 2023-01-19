@@ -1,6 +1,3 @@
-window.alert("Hasjhf");
-
-
 logout = async (e) => {
   e.preventDefault();
 

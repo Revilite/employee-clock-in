@@ -10,7 +10,7 @@ body {
   background-color: lightgray;
   color: black;
   font-weight: bolder;
-  padding: 3px; 
+  padding: 3px;
 }
 
 a {
@@ -19,13 +19,13 @@ a {
   font-size: 32px;
 }
 
-.move{
+.move {
   color: white;
   font-size: 64px;
   margin-left: 25%;
 }
 
-.signInForm{
+form {
   background-color: #454545;
   height: 50%;
   width: 50%;
@@ -37,17 +37,19 @@ a {
   border-radius: 5px;
 }
 
-.signInForm > h1{
+form>h1 {
   color: white;
   margin-bottom: 0px;
 }
 
-.signInForm > input {
+form>input {
   width: 30%;
   height: 15%;
 }
 
 .submitButton {
+  display: relative;
+  margin-left: 10%;
   background-color: #676767;
   color: white;
   font-size: 20px;
@@ -55,12 +57,17 @@ a {
   margin-top: 12px;
 }
 
-@media (max-width: 425px){
-  .signInForm > input{
+@media (max-width: 425px) {
+  form>input {
     width: 75%;
   }
 
-  .signInForm {
+  form {
     margin-top: 15vh;
+  }
+
+  .submitButton {
+    margin-left: 23%;
+
   }
 }

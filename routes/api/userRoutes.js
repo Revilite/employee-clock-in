@@ -49,10 +49,9 @@ router.post("/login", async (req, res) => {
       req.session.loggedIn = true;
 
       res.json({ user: userData, message: "You are now logged in"});
-      document.location.replace("/clockIn");
     });
 
-
+    
 
   }
   catch (err) {
