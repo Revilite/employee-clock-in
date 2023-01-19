@@ -1,4 +1,3 @@
-const { userInfo } = require("os");
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -13,7 +12,9 @@ User.init(
       autoIncrement: true,
     },
     username: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      unique: true,
+
     },
     email: {
       type: DataTypes.STRING,
