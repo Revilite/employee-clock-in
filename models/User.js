@@ -1,7 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-class User extends Model{}
+class User extends Model{
+  checkPassword(pw){
+    return bcrypt.compare(pw, this.password);
+  }
+  checkCode(code){
+    return bcrypt.compare(code, this.userCode);
+  }
+}
 
 User.init(
   {
@@ -34,10 +42,12 @@ User.init(
       type: DataTypes.STRING
     },
     isClockedIn: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     },
     userCode: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING,
+      allowNull: false
     },
     timeClockedIn: {
       type: DataTypes.TIME
@@ -50,6 +60,10 @@ User.init(
     hooks: {
       beforeCreate: async (newUserData) =>{
         newUserData.email = await newUserData.email.toLowerCase();
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        newUserData.userCode = await bcrypt.hash(newUserData.userCode, 10);
+
+
         return newUserData
       },
       beforeUpdate: async (updatedUserData) =>{

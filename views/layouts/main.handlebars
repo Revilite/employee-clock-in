@@ -11,14 +11,21 @@
 
 <body>
   <nav class="navbar">
+    {{#if loggedIn}}
+    <h1><a href="/login" id="logout">Logout</a></h1>
+    {{/if}}
+    {{#else}}
     <h1><a href="/signUp">Sign Up</a></h1>
     <h1><a href="/logIn">Log In</a></h1>
     <h1><a href="/clockIn">Clock In</a></h1>
+    {{/else}}
   </nav>
 
   {{{body}}}
 
 
 </body>
-
+{{#if loggedIn}}
+<script src="logout.js"></script>
+{{/if}}
 </html>
