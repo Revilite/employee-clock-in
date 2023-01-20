@@ -1,6 +1,4 @@
 
-
-
 getUser = async (e) => {
   e.preventDefault();
   const username = document.querySelector("#loginUsername").value;
@@ -21,4 +19,4 @@ getUser = async (e) => {
 }
 
 
-document.querySelector(".signInForm").addEventListener("submit", getUser);
+document.querySelector(".logInForm").addEventListener("submit", getUser);
